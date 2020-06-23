@@ -1,6 +1,6 @@
 # leaderboard
 
-> [**Main URL**](https://hngairtimepurchase.web.app/)  
+> [**Website URL**](https://mr-emeka.github.io/leaderboard/)  
 
 ## Contributors
 
