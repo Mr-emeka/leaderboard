@@ -43,7 +43,8 @@ const getnewData = (k) => {
 
 
 function appendData(data) {
-    sortedInterns = data.sort((a, b) => b.totalPoints - a.totalPoints);
+    const addedPos = data.map((intern, i) => { return { ...data[i], position: i + 1 } })
+    sortedInterns = addedPos.sort((a, b) => b.totalPoints - a.totalPoints);
     currentData = sortedInterns.slice(indexOfFirstIntern, indexOfLastIntern);
     for (let i = 1; i <= Math.ceil(sortedInterns.length / dataPerPage); i++) {
         pageNumbers.push(i);
@@ -59,7 +60,7 @@ const populatePage = (currentData) => {
             //  position
             const pos = document.createElement('span')
             // pos.setAttribute('class','')
-            pos.innerHTML = i;
+            pos.innerHTML = ordinal_suffix_of(intern.position);
             // img
             const imgpos = document.createElement('img')
             imgpos.setAttribute('src', "./assets/img/avatar/av1.jpg")
@@ -85,7 +86,7 @@ const populatePage = (currentData) => {
         // position
         const span = document.createElement('span');
         span.setAttribute('class', "position")
-        span.innerHTML = `${i + 1}st`;
+        span.innerHTML = ordinal_suffix_of(intern.position);
 
         // img
         const img = document.createElement('img')
@@ -148,7 +149,7 @@ const change = (currentData) => {
         // position
         const span = document.createElement('span');
         span.setAttribute('class', "position")
-        span.innerHTML = `${i + 1}st`;
+        span.innerHTML = ordinal_suffix_of(intern.position);
 
         // img
         const img = document.createElement('img')
@@ -195,4 +196,12 @@ const change = (currentData) => {
         main.append(sub);
 
     })
+}
+
+const ordinal_suffix_of = (i) => {
+    var j = i % 10, k = i % 100;
+    if (j == 1 && k != 11) return i + 'st'
+    if (j == 2 && k != 12) return i + 'nd';
+    if (j == 3 && k != 13) return i + 'rd';
+    return i + 'th'
 }
