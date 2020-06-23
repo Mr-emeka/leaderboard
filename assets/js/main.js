@@ -26,11 +26,30 @@ fetch("./assets/js/data.json")
     });
 
 
-search.addEventListener('keydown', (e) => {
-    let filtered = currentData.filter(d => d.userName.split('@').pop(0).toLowerCase().includes(e.target.value.toLowerCase()));
-    change(filtered)
+search.addEventListener('keyup', (e) => {
+    // let filtered = currentData.filter(d => d.userName.split('@').pop(0).toLowerCase().includes(e.target.value.toLowerCase()));
+    // change(filtered)
+    const all = document.querySelectorAll('.sub-leader1 .points');
+    all.forEach((item, i) => {
+        console.log(item.textContent.split('pt')[0].toLowerCase().includes(e.target.value.toLowerCase()))
+        if (item.textContent.split('pt')[0].toLowerCase().indexOf(e.target.value.toLowerCase()) != -1) {
+            return
+        }
+        if (i === 0) return
+        item.parentElement.style.display = "none"
+
+    })
 });
 
+search.addEventListener('keyup', (e) => {
+    if (e.keyCode === 8) {
+        const all = document.querySelectorAll('.sub-leader1 .points');
+        all.forEach(item => {
+            item.parentElement.style.display = 'flex'
+
+        })
+    }
+});
 
 const getnewData = (k) => {
     currentPage = k;
