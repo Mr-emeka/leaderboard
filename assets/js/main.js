@@ -98,7 +98,7 @@ const populatePage = (currentData) => {
         h5.innerHTML = intern.fullName;
         // slackclass
         const slackid = document.createElement('p')
-        slackid.setAttribute('class', 'slacid');
+        slackid.setAttribute('class', 'slackid');
         slackid.innerHTML = intern.userName;
         // email
         const email = document.createElement('p')
@@ -111,14 +111,15 @@ const populatePage = (currentData) => {
         // points
         const points = document.createElement('h5');
         points.setAttribute('class', 'points');
-        points.innerHTML = intern.totalPoints;
+        points.innerHTML = point(intern.totalPoints);
         // share btn
         const link = document.createElement('a')
         link.setAttribute('href', `https://twitter.com/intent/tweet?text=My%20Total%20Point%20on%20this%20week%20HNG%20Leader%20board%20is%20${intern.totalPoints}pts`)
         link.setAttribute('target', '_blank');
 
         const share = document.createElement('button')
-        share.innerHTML = 'share on twitter'
+        share.setAttribute('class', 'btn-share')
+        share.innerHTML = 'tweet'
 
         link.appendChild(share)
         // share.setAttribute('class', 'share');
@@ -137,6 +138,7 @@ const populatePage = (currentData) => {
     pageNumbers.map(num => {
         const btn = document.createElement('button');
         btn.setAttribute('onclick', `getnewData(${num})`)
+        btn.setAttribute('class', 'paginator')
         btn.innerHTML = num;
         pagination.append(btn);
     })
@@ -161,7 +163,7 @@ const change = (currentData) => {
         h5.innerHTML = intern.fullName;
         // slackclass
         const slackid = document.createElement('p')
-        slackid.setAttribute('class', 'slacid');
+        slackid.setAttribute('class', 'slackid');
         slackid.innerHTML = intern.userName;
         // email
         const email = document.createElement('p')
@@ -174,14 +176,15 @@ const change = (currentData) => {
         // points
         const points = document.createElement('h5');
         points.setAttribute('class', 'points');
-        points.innerHTML = intern.totalPoints;
+        points.innerHTML = point(intern.totalPoints);
         // share btn
         const link = document.createElement('a')
         link.setAttribute('href', `https://twitter.com/intent/tweet?text=My%20Total%20Point%20on%20this%20week%20HNG%20Leader%20board%20is%20${intern.totalPoints}pts`)
         link.setAttribute('target', '_blank');
 
         const share = document.createElement('button')
-        share.innerHTML = 'share on twitter'
+        share.setAttribute('class', 'btn-share')
+        share.innerHTML = 'tweet'
 
         link.appendChild(share)
 
@@ -204,4 +207,8 @@ const ordinal_suffix_of = (i) => {
     if (j == 2 && k != 12) return i + 'nd';
     if (j == 3 && k != 13) return i + 'rd';
     return i + 'th'
+}
+const point = (pts) => {
+    if (pts < 1) return pts + 'pt'
+    return pts + 'pts'
 }

@@ -58,7 +58,7 @@
     background: #2F80ED;
     color: white;
     border-radius: 5px;
-    border: 1px sol. #2F80ED;
+    border: 1px solid #2F80ED;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -84,7 +84,7 @@
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    width: 65%;
+    width: 80%;
     margin: 0 auto;
     margin-top: 1.2rem;
 }
@@ -93,11 +93,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px sol. black; */
+    /* border: 1px solid black; */
     background-color: white;
     box-shadow: 0px 2px 4px rgba(8, 35, 48, 0.24);
     border-radius: 5px;
-    padding: 12px 0 10px 0;
+    padding: 12px 10px 10px 10px;
     /* height: 100px; */
 }
 
@@ -166,7 +166,7 @@
     justify-content: space-between;
     margin-top: 0.75rem;
     padding: 10px;
-    overflow: h.den;
+    overflow: hidden;
     background-color: white;
     box-shadow: 0px 2px 4px rgba(8, 35, 48, 0.24);
     border-radius: 5px;
@@ -180,4 +180,40 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
+}
+
+h5.name {
+    font-size: 1em;
+}
+
+.track {
+    font-size: .8em;
+}
+
+h5.points {
+    font-size: .9em;
+}
+
+.btn-share {
+    color: white;
+    background: black;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer
+}
+
+.paginator {
+    color: white;
+    background: black;
+    margin: 1px;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
 }
